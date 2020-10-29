@@ -7,6 +7,7 @@ export const Container = styled.div`
 
 export const Inner = styled.div`
     display: flex;
+    align-items: center;
     padding: 70px 45px;
     flex-direction: column;
     max-width: 815px;
@@ -29,6 +30,7 @@ export const Title = styled.h1`
 export const Item = styled.div`
     color: white;
     margin-bottom: 10px;
+    width: 100%;
     max-width: 670px;
 
     &:first-of-type {
