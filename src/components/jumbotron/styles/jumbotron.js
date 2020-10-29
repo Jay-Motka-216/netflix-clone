@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 
 export const Item = styled.div`
     display: flex;
-    border-bottom: 8px solid #222;
+    border-bottom: 6px solid #222;
     pading: 50px 5%;
     color: white;
     overflow: hidden;
@@ -21,7 +21,13 @@ export const Inner = styled.div`
     }
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    @media (max-width: 1000px){
+        $(Item):last-of-type h2 {
+            margin-bottom: 50px;
+        }
+    }
+`;
 
 export const Pane = styled.div`
     width:50%;
