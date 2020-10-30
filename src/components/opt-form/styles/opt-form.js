@@ -70,6 +70,6 @@ export const Text = styled.p`
 `;
 
 export const Break = styled.div`
-    fles-basis: 100%;
+    flex-basis: 100%;
     height: 0;
 `;
