@@ -23,6 +23,6 @@ Header.Logo = function HeaderLogo({to, ...props}){
 
 Header.ButtonLink = function HeaderButtonLink({to,children, ...props}){
     return (
-        <Button {...props} >{children}</Button>
+        <Button to={to} {...props} >{children}</Button>
     );
 }
