@@ -60,7 +60,7 @@ function Signup() {
                     <Form.Submit disabled={isInvalid} type='submit'>Sign Up</Form.Submit>
                 </Form.Base>
                 <Form.Text>
-                    Already have an account? <Form.Link to={ROUTE.SIGN_UP}>Sign In!</Form.Link>
+                    Already have an account? <Form.Link to={ROUTE.SIGN_IN}>Sign In!</Form.Link>
                 </Form.Text>
                 <Form.SmallText>This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn More.</Form.SmallText>
             </Form>
