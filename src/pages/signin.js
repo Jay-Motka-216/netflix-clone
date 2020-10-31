@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { FirebaseContext } from '../context/firebase';
+
 import HeaderContainer from '../containers/header';
 import FooterContainer from '../containers/footer';
 import { Form } from '../components';
+
 import * as ROUTE from '../constants/route';
+import { useHistory } from 'react-router-dom';
 
 function Signin() {
+
+    const history = useHistory();
+    const { firebase } = useContext(FirebaseContext);
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -12,6 +19,17 @@ function Signin() {
     const isInvalid = password === '' || emailAddress === '';
     const handleSignin = (event) => {
         event.preventDefault();
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(emailAddress, password)
+            .then(() => {
+                history.push(ROUTE.BROWSE);
+            })
+            .catch((e) => {
+                setEmailAddress('');
+                setPassword('');
+                setError(e.message);
+            });
     }
     return(
         <>
