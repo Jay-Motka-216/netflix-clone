@@ -8,7 +8,7 @@ import { useAuthListener } from './hooks';
 import { Home, Browse, Signin, Signup } from './pages';
 
 function App() {
-  const user = useAuthListener();
+  const { user } = useAuthListener();
   return (
     <Router>
       <ProtectedRoute user={user} path={ROUTES.BROWSE} exact>
