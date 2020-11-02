@@ -52,4 +52,57 @@ export const Background = styled.div`
     display: flex;
     flex-direction: column;
     background: url(${({src}) => src? `../images/misc/${src}.jpg` :'../images/misc/home-bg.jpg' }) top left / cover no-repeat;
+    width: 100%;
+
+    @media (max-width: 1100px) {
+        ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;` };
+    }
+`;
+
+export const Feature = styled(Container)`
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 150px 0 500px 0;
+    align-items: normal;
+`;
+
+export const Text = styled.p`
+    color: white;
+    font-size: 22px;
+    line-height: normal;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
+    margin: 0;
+`;
+
+export const FeatureCallOut = styled.h2`
+    color: white;
+    font-size: 50px;
+    line-height: normal;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
+    margin: 0;
+    margin-bottom: 20px;
+`;
+
+export const TextLink = styled.p`
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+
+    &:hover {
+        font-weight: bold;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+`;
+
+export const Group = styled.div`
+    display: flex;
+    align-items: center;
 `;
