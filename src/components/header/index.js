@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
-import { Container, Logo, Button, Background, Feature, Text, FeatureCallOut, TextLink, Group } from './styles/header';
+import { Container, Logo, Button, Background, Feature, Text, FeatureCallOut, TextLink, Group, Picture, Dropdown, Profile, Search, SearchIcon, SearchInput, PlayButton } from './styles/header';
 
 export default function Header({bg = true, children, ...props}){
     return(
@@ -45,4 +45,36 @@ Header.ButtonLink = function HeaderButtonLink({to,children, ...props}){
     return (
         <Button to={to} {...props} >{children}</Button>
     );
+}
+
+Header.PlayButton = function HeaderPlayButton({children, ...props}){
+    return (
+        <PlayButton {...props} >{children}</PlayButton>
+    );
+}
+
+Header.Profile = function HeaderProfile({children, ...props}){
+    return (
+        <Profile {...props} >{children}</Profile>
+    );
+}
+
+Header.Picture = function HeaderPicture({ src, ...props }) {
+    return ( <Picture src={`images/users/${src}.png`} {...props} /> );
+}
+
+Header.Dropdown = function HeaderDropdown({ children, ...props}) {
+    return( <Dropdown {...props}>{children}</Dropdown> );
+}
+
+Header.Search = function HeaderSearch({searchTerm, setSearchTerm, ...props}) {
+    const [ sactive, setActive ] = useState(false);
+    return ( 
+        <Search {...props}>
+            <SearchIcon onClick={() => setActive(sactive => !sactive)}>
+                <img src='images/icons/search.png' alt="Search" />
+            </SearchIcon>
+            <SearchInput value={searchTerm} onChange={({ target }) => setSearchTerm(target.value)} placeholder="Search" active={sactive} />
+        </Search>
+     );
 }
