@@ -51,3 +51,24 @@ Card.Item = function CardItem({item, children, ...props}) {
 Card.Image = function CardImage({ ...props }) {
     return (<Image {...props} />);
 }
+
+Card.Feature = function CardFeature({children, category, ...props}) {
+    const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext);
+
+
+    return showFeature ? (<Feature src={`/images${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`} {...props}>
+        <Content>
+            <FeatureTitle>{itemFeature.title}</FeatureTitle>
+            <FeatureText>{itemFeature.description}</FeatureText>
+            <FeatureClose onClick={() => setShowFeature(false)}>
+                <img src="/images/icons/close.png" alt="Close" />
+            </FeatureClose>
+        </Content>
+        <Group margin='30px 0' flexDirection='row' alignItems='center'>
+            <Maturity rating={itemFeature.maturity}>{itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}</Maturity>
+            <FeatureText fontWidth='bold'>
+                {itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
+            </FeatureText>
+        </Group>
+    </Feature>) : null;
+}

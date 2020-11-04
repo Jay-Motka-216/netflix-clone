@@ -7,7 +7,6 @@ import * as ROUTES from '../constants/route';
 import logo from '../logo.svg';
 
 import { FirebaseContext } from '../context/firebase';
-import { SmallText } from '../components/form/styles/form';
 
 function BrowseContainer({slides}) {
 
@@ -80,6 +79,9 @@ function BrowseContainer({slides}) {
                                         </Card.Item>
                                     ))}
                                 </Card.Entities>
+                                <Card.Feature category={category}>
+                                    <p>Hello</p>
+                                </Card.Feature>
                             </Card>
                         ))}
                     </Card.Group>
