@@ -51,11 +51,11 @@ export const Button = styled(ReactRouterLink)`
 export const Background = styled.div`
     display: flex;
     flex-direction: column;
-    background: url(${({src}) => src? `../images/misc/${src}.jpg` :'../images/misc/home-bg.jpg' }) top left / cover no-repeat;
+    background: url(${({src}) => src? `../images/misc/${src}.jpg` :'../images/misc/home-bg.jpg' }) top / cover;
     width: 100%;
 
     @media (max-width: 1100px) {
-        ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;` };
+        ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none` };
     }
 `;
 

@@ -20,7 +20,9 @@ export const Container = styled.div`
             margin-left: 30px;
         }
     }
-
+    &:first-of-type {
+        margin-top: 30px;
+    }
     &:last-of-type {
         margin-bottom: 0;
     }
@@ -75,8 +77,8 @@ export const Item = styled.div`
     cursor: pointer;
     transition: transform 0.2s;
     &:hover {
-    transform: scale(1.3);
-    z-index: 99;
+        transform: scale(1.3);
+        z-index: 99;
     }
     @media (min-width: 1200px) {
     &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle} {
@@ -139,6 +141,7 @@ export const FeatureClose = styled.button`
 export const Feature = styled.div`
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
     background: url(${({ src }) => src});
     background-size: contain;
     position: relative;

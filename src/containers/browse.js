@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import SelectProfileContainer from './profiles';
+import FooterContainer from '../containers/footer';
 import { Header, Loading, Card } from '../components';
 
 import * as ROUTES from '../constants/route';
@@ -79,12 +80,14 @@ function BrowseContainer({slides}) {
                                         </Card.Item>
                                     ))}
                                 </Card.Entities>
-                                <Card.Feature category={category}>
+                                <Card.Feature category={category} >
                                     <p>Hello</p>
                                 </Card.Feature>
                             </Card>
                         ))}
                     </Card.Group>
+
+                    <FooterContainer />
                 </> )}
                 </>) 
             : (<SelectProfileContainer user={user} setProfile={setProfile} />)

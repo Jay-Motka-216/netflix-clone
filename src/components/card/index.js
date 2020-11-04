@@ -40,7 +40,7 @@ Card.Meta = function CardMeta({children, ...props}) {
 }
 
 Card.Item = function CardItem({item, children, ...props}) {
-    const { setShowFeature, setItemFeature } = useContext(FeatureContext);
+    const {  setShowFeature, setItemFeature } = useContext(FeatureContext);
 
     return ( <Item onClick={() => {
         setItemFeature(item);
@@ -55,20 +55,20 @@ Card.Image = function CardImage({ ...props }) {
 Card.Feature = function CardFeature({children, category, ...props}) {
     const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext);
 
-
-    return showFeature ? (<Feature src={`/images${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`} {...props}>
+    return showFeature ? (<Feature src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}>
         <Content>
             <FeatureTitle>{itemFeature.title}</FeatureTitle>
             <FeatureText>{itemFeature.description}</FeatureText>
             <FeatureClose onClick={() => setShowFeature(false)}>
                 <img src="/images/icons/close.png" alt="Close" />
             </FeatureClose>
+            <Group margin='30px 0' flexDirection='row' alignItems='center'>
+                <Maturity rating={itemFeature.maturity}>{itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}</Maturity>
+                <FeatureText fontWidth='bold'>
+                    {itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
+                </FeatureText>
+            </Group>
+        {children}
         </Content>
-        <Group margin='30px 0' flexDirection='row' alignItems='center'>
-            <Maturity rating={itemFeature.maturity}>{itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}</Maturity>
-            <FeatureText fontWidth='bold'>
-                {itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
-            </FeatureText>
-        </Group>
     </Feature>) : null;
 }
