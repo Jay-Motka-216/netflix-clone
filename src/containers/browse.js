@@ -31,6 +31,16 @@ function BrowseContainer({slides}) {
         setSlideRows(slides[category]);
     },[slides, category]);
 
+    useEffect(() => {
+        const fuse = new Fuse(slideRows, { keys: ['Data.description','Data.title','Data.genre'],});
+        const result = fuse.search(searchTerm).map(({ item }) => item);
+
+        if(slideRows.length > 0 && searchTerm.length > 3 && result.length > 0) {
+            setSlideRows(result);
+        } else {
+            setSlideRows(slides[category]);
+        }
+    },[searchTerm]);
 
     return(
             profile.displayName ? ( <>
